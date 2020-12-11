@@ -10,5 +10,5 @@ def indexview(request):
 	}
 	return render(request, "home.html", context)
 
-def aboutview(request):
-	return render(request, "about.html")
+#def aboutview(request):
+#	return render(request, "about.html")
