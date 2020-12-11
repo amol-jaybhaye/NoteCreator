@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="main">
+    <div class="main-one">
+      <h2>Find Your Favorite Topics</h2>
+    </div>
+    <div class="search">
+      <form action="#">
+        <input type="text" placeholder ="search">
+        <button type="submit">Go</button>
+      </form>
+    </div>
+  </div>
+  {% for topic in topic %}
+  <button type="button" class="collapsible">{{topic.tagline}}</button>
+
+  <div class="content">
+    <div class="child">
+      <p>{{topic.text}}</p>
+      <a href="https://{{ topic.url }}">Visit site</a>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div id="contact" class="contact">
+    <h1>Contact Us</h1>
+  </div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+
+{% endblock %}
