@@ -7,13 +7,14 @@
     <div class="span" id="span">
       <span style="font-size:32px;cursor:pointer" onclick="openNav()">&#9776;</span>
     </div>
-
-    <div style="text-align-last: center;">
-      <h1>Our Mission</h1>
-      <h2 style="color: #003333; padding:20px;">Make the World Hunger Free</h2>
-      <h2 style="color: #fff; padding:20px;">Connect Donors to Ngos</h2>
+    {% for topic in topic %}
+    <div class="main-two">
+      <h1>{{ topic.tagline }}</h1>
+      <p style="color: #ffff;"> {{ topic.text }}</p>
+      <a href="https://{{ topic.url }}" style="color: #0000ff; text-decoration: none;">{{ topic.url }}</a>
+      <hr/>
     </div>
-
+    {% endfor %}
   </div>
 
 

@@ -3,12 +3,15 @@ from .models import Topic
 
 # Create your views here.
 def indexview(request):
-	topic = Topic.objects.all().order_by('-date')
+	return render(request, "home.html")
+
+def ngoview(request):
+	topic = Topic.objects.all()
 
 	context = {
 		'topic' : topic,
 	}
-	return render(request, "home.html", context)
+	return render(request, "search.html", context)
 
-#def aboutview(request):
-#	return render(request, "about.html")
+def aboutview(request):
+	return render(request, "about.html")

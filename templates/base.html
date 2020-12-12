@@ -7,141 +7,91 @@
   <style type="text/css">
     body {
       background: #4dc3ff;
-      padding: 5px 20px;
-      margin: 10px;
-    }
-
-    .nav {
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .nav a {
-      float: left;
-      color: #333;
-      text-align: center;
-      padding: 18px 10px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    .nav a:hover {
-      background: #00cc00;
-      color: white;
-    }
-
-    .nav a.home-active {
-      background: #6666ff;
-      color: white;
+      padding: 8% 5%;
     }
 
     .main {
-      background: #66ffcc;
-      margin: 5px 0.1px;
-      padding: 93px 15px;
+      background: #ff99cc;
+    }
+
+    .main .span {
+      margin : 10px;
+    }
+
+    .nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background: #999966;
+      overflow-x: hidden;
+      transition: .5s;
+      padding-top: 60px;
+    }
+
+    .nav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 30px;
+      color: #333300;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      color: #fff;
+    }
+
+    .nav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .nav {padding-top: 15px;}
+      .nav a {font-size: 18px;}
     }
 
     .main .main-one {
-      text-align-last: center;
-      color: #99667a;
-    }
-
-    .main .search {
-      text-align: center;
-    }
-
-    .main input[type=text] {
-      padding: 10px;
-      margin-top: 9px;
-      margin-left: 14px;
-      font-size: 18px;
-      border: none;
-    }
-
-    .main .search button {
-      padding: 7px 8px;
-      margin-top: 18px;
-      margin-right: 18px;
-      color: #ffffff;
-      background: #6666ff;
-      font-size: 20px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .collapsible {
-      background-color: #000066;
-      color: white;
-      cursor: pointer;
-      padding: 20px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-    }
-
-    .active, .collapsible:hover {
-      background-color: #000099;
-    }
-
-    .collapsible:after {
-      content: '\002B';
-      color: white;
-      font-weight: bold;
-      float: right;
-      margin-left: 5px;
-    }
-
-    .active:after {
-      content: "\2212";
-    }
-    .content {
-      padding: 0 18px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-      background-color: #f1f1f1;
-    }
-
-    .content .child {
-      margin-bottom: 20px;
-    }
-
-    .contact {
-      background-color: #ffffff;
-      text-align-last: center;
-      margin: 35px 0.1px;
-      padding: 100px 15px;    
-    }
-
-    .footer {
+      margin: 10px;
+      padding-top: 7%;
+      padding-bottom: 8%;
       text-align-last: center;
     }
-
-    .about {
-      background-color: #66ffcc;
-      text-align-last: center;    
-      margin: 5px 0.1px;
-      padding: 100px 15px;
+    .main .main-two {
+      margin: 12px;
+      padding-top: 2%;
+      padding-bottom: 2%;
     }
   </style>
 
 </head>
 <body>
-  <div class="nav">
-    <a class="home-active" href="/">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+
+  <div id="nav" class="nav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'ngo' %}">Ngos</a>
   </div>
 
 {% block content %}
 
 {% endblock %}
 
-  <footer class="footer">
-    <p>@top-search 2021</p>
-  </footer>
+<script>
+function openNav() {
+  document.getElementById("nav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("nav").style.width = "0";
+}
+</script>
 
 </body>
 </html>

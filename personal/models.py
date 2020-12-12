@@ -4,8 +4,8 @@ from django.db import models
 class Topic(models.Model):
 	tagline = models.CharField(max_length=200)
 	text = models.CharField(max_length=200)
-	url = models.CharField(max_length=200)
-	date = models.DateTimeField(auto_now_add=True)
+	url = models.CharField(max_length=200, blank=True)
+	date = models.DateTimeField()
 
 
 	def _str_(self):

@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.indexview, name="index"),
- #   path('about/', views.aboutview, name="about")
+    path('ngo/', views.ngoview, name="ngo"),
+    path('our-mission/', views.aboutview, name="about"),
 ]
