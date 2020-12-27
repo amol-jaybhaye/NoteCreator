@@ -14,4 +14,4 @@ def ngoview(request):
 	return render(request, "search.html", context)
 
 def aboutview(request):
-	return render(request, "about.html")
+	return render(request, "que.html")
