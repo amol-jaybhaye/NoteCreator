@@ -6,92 +6,108 @@
 
   <style type="text/css">
     body {
-      background: #4dc3ff;
-      padding: 8% 5%;
+      background: white;
     }
-
     .main {
-      background: #ff99cc;
-    }
-
-    .main .span {
-      margin : 10px;
-    }
-
-    .nav {
+      background: gray;
+      color: white;
+      position: absolute;
       height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
+      width: 100%;
       top: 0;
       left: 0;
-      background: #999966;
-      overflow-x: hidden;
-      transition: .5s;
+    }
+    .main .main-content {
+      position: fixed;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      padding:20px;
+      text-align: center;
+    }
+    .main a {
+      background-color: white;
+      text-decoration: none;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .nav {
+      background: gold;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+    input[type=text], input[type=url], input[type=textarea], input[type=password], input[type=username] {
+      width: 80%;
+      padding: 10px 18px;
+      margin: 8px 0;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: yellowgreen;
+      padding: 12px 20px;
+      margin: 8px 0;
+      cursor: pointer;
+      width: 100%;
+    }
+    .head-container {
+      text-align: center;
+      position: relative;
+    }
+
+    .container {
+      padding: 16px;
+      font-size: large;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
       padding-top: 60px;
     }
-
-    .nav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 30px;
-      color: #333300;
-      display: block;
-      transition: 0.3s;
+    .modal-content {
+      background-color: whitesmoke;
+      margin: 5% auto 15% auto;
+      width: 80%;
     }
-
-    .nav a:hover {
-      color: #fff;
-    }
-
-    .nav .closebtn {
+    .close {
+      background-color: black;
       position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
+      right: 30px;
+      color:  #ffffff;
+      font-size: larger;
+      margin-top: 10px;
     }
-
-    @media screen and (max-height: 450px) {
-      .nav {padding-top: 15px;}
-      .nav a {font-size: 18px;}
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
     }
-
-    .main .main-one {
+    .search {
+      padding: 25px;
+      margin: 15px;
+    }
+    .result {
+      background-color: skyblue;
       margin: 10px;
-      padding-top: 7%;
-      padding-bottom: 8%;
-      text-align-last: center;
-    }
-    .main .main-two {
-      margin: 12px;
-      padding-top: 2%;
-      padding-bottom: 2%;
+      padding: 20px;
+      border-radius: 40px;
     }
   </style>
 
 </head>
 <body>
-
-  <div id="nav" class="nav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'index' %}">Home</a>
-    <a href="{% url 'ngo' %}">Ngos</a>
-  </div>
-
 {% block content %}
 
 {% endblock %}
-
-<script>
-function openNav() {
-  document.getElementById("nav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("nav").style.width = "0";
-}
-</script>
 
 </body>
 </html>

@@ -3,21 +3,12 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-
   <div class="main">
-    <div class="span" id="span">
-      <span style="font-size:32px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    </div>
-
-    <div class="main-one">
-      <h2>DO you know ?</h2>
-      <h3>19 crore people in India sleep hungry every day :(</h3>
-      <br/>
-      <form action="/ngo">
-        <button style="color: #fff; background-color: #4CAF50; padding: 10px; cursor: pointer;">Help Them</button>
-      </form>
+    <div class="main-content">
+      <h2>Your Personal Self Study Notes Creator</h2><br>
+      <a href="{% url 'signin' %}">Sign in</a>
+      <a href="{% url 'signup' %}">Sign up</a>
     </div>
   </div>
-
 
 {% endblock %}

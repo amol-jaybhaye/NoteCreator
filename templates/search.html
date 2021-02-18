@@ -1,21 +1,19 @@
 {% extends 'base.html' %}
-{% block title %}ngo's in suarat{% endblock %}
+{% block title %}Search{% endblock %}
+
 {% block content %}
-
-
-  <div class="main">
-    <div class="span" id="span">
-      <span style="font-size:32px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    </div>
-    {% for topic in topic %}
-    <div class="main-two">
-      <h1>{{ topic.tagline }}</h1>
-      <p style="color: #ffff;"> {{ topic.text }}</p>
-      <a href="https://{{ topic.url }}" style="color: #0000ff; text-decoration: none;">{{ topic.url }}</a>
-      <hr/>
-    </div>
-    {% endfor %}
-  </div>
-
-
+<p><a href="{% url 'dashboard' %}" style="text-decoration: none;">&larr; Back to Dashboard</a></p>
+{% if search %}
+<h3>search results are : </h3>
+{% for src in search %}
+<div class="result">
+     <h2>{{src.title}}</h2>
+     <p>{{src.note}}</p>
+     <a href="{{src.link}}" target="_blank">refrence</a>
+     <h5>{{src.date}}</h5>
+</div>
+{% endfor %}
+{% else %}
+<h3>no search results found</h3>
+{% endif %}
 {% endblock %}

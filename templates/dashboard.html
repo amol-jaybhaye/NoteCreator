@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+
+<div class="nav">
+     Hello {{user}}
+     <a href="{% url 'signout' %}" style="margin-left: 85%;">Logout</a><hr>
+     <button onclick="document.getElementById('sdf1').style.display='block'" style="width: auto;">Add Note</button>
+</div>
+<!-- notes adding form -->
+<div id="sdf1" class="modal">
+     <form method="POST" class="modal-content">
+          <div class="head-container">
+               <span onclick="document.getElementById('sdf1').style.display='none'"
+                    class="close">close</span>
+          </div>
+          {% csrf_token %}
+          <div class="container">
+               {{form.as_p}}
+               <button type="submit">Add</button>
+          </div>
+     </form>
+</div>
+<!-- to diplay user notes list  -->
+<div class="search">
+     <form method="GET" action="{% url 'search' %}">
+          <input type="text" name="search" id="search" required="required" style="width: 70%;">
+          <button type="submit" style="width: auto;">search</button>
+     </form>
+</div>
+<hr>
+{% if notes %}
+{% for note in notes %}
+<div class="result">
+     <h2>{{note.title}}</h2>
+     <p>{{note.note}}</p>
+     <a href="{{note.link}}" target="_blank">refrence</a>
+     <h5>{{note.date}}</h5>
+</div>
+<br>
+{% endfor %}
+{% else %}
+<h2>welcome {{user}},</h2>
+<p> now you can create notes and make yourself study more effective,
+     <br>click add notes button to start.</p>
+{% endif %}
+
+{% endblock %}

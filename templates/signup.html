@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} sign up {% endblock %}
+
+{% block content %}
+
+<form method="POST" class="modal-content">
+     {% csrf_token %}
+     <div class="container">
+        <h1>Sign Up</h1>
+        <p>Username : {{form.username}}</p>
+        <p>Password : {{form.password1}}</p>
+        <p>Comfirm Password : {{form.password2}}</p>
+        <button type="submit">Submit</button>
+        {{ form.errors }}
+        <p>Already have Account? <a href="{% url 'signin' %}">sign in</a></p>   
+     </div>
+</form>
+
+{% endblock%}
