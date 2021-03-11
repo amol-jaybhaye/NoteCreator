@@ -8,10 +8,11 @@
      <div class="container">
         <h1>Sign Up</h1>
         <p>Username : {{form.username}}</p>
+        <p>Email : {{form.email}}</p>
         <p>Password : {{form.password1}}</p>
         <p>Comfirm Password : {{form.password2}}</p>
         <button type="submit">Submit</button>
-        {{ form.errors }}
+        <li style="color: red;">{{ form.errors }}</li>
         <p>Already have Account? <a href="{% url 'signin' %}">sign in</a></p>   
      </div>
 </form>

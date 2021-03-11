@@ -12,7 +12,7 @@
           <p>password : <input type="password" name="password1"></p>
           <button type="submit">submit</button>
           {% for message in messages %}
-               {{message}}
+               <p style="color: red;">{{message}}</p>
           {% endfor %}
           <p>Don't have Account? <a href="{% url 'signup' %}">sign up</a></p>       
      </div>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Update{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'dashboard' %}" style="text-decoration: none;">&larr; Back to Dashboard</a></p>
+<form method="POST" class="modal-content">
+     {% csrf_token %}
+     <div class="container">
+          <label for="title">Title :</label>
+          <p id="title">{{form.title}}</p>
+          <label for="note">Note :</label>
+          <p id="note">{{form.note}}</p>
+          <label for="link">Link :</label>
+          <p id="link">{{form.link}}</p>
+          <button type="submit">Add</button>
+     </div>
+</form>
+
+{% endblock %}

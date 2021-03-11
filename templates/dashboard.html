@@ -17,7 +17,12 @@
           </div>
           {% csrf_token %}
           <div class="container">
-               {{form.as_p}}
+               <label for="title">Title :</label>
+               <p id="title">{{form.title}}</p>
+               <label for="note">Note :</label>
+               <p id="note">{{form.note}}</p>
+               <label for="link">Link :</label>
+               <p id="link">{{form.link}}</p>
                <button type="submit">Add</button>
           </div>
      </form>
@@ -25,7 +30,7 @@
 <!-- to diplay user notes list  -->
 <div class="search">
      <form method="GET" action="{% url 'search' %}">
-          <input type="text" name="search" id="search" required="required" style="width: 70%;">
+          <input type="text" name="search" id="search" required="required" style="width: 70%;" placeholder="search your activities..">
           <button type="submit" style="width: auto;">search</button>
      </form>
 </div>
@@ -37,6 +42,8 @@
      <p>{{note.note}}</p>
      <a href="{{note.link}}" target="_blank">refrence</a>
      <h5>{{note.date}}</h5>
+     <a href="{% url 'update' note.id %}" style="text-decoration: none;">edit</a>
+     <a href="{% url 'delete' note.id %}" style="text-decoration: none;">delete</a>
 </div>
 <br>
 {% endfor %}

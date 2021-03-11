@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'dashboard' %}" style="text-decoration: none;">&larr; Back to Dashboard</a></p>
+<form action="{% url 'delete' note.id %}" method="POST" class="modal-content">
+     {% csrf_token %}
+     <div class="container">
+          <p>you realy want to delete <u>"{{note.title}}"</u> ?</p>
+          <input type="submit" value="DELETE">
+     </div>
+</form>
+
+{% endblock %}
