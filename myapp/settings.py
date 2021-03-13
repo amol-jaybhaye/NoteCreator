@@ -133,15 +133,3 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'amolk5482@gmail.com'
-EMAIL_HOST_PASSWORD = 'thiswhy@iam?3486'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "Justin <hungrypy@gmail.com>"
-
-
-ADMINS = [('Amol', EMAIL_HOST_USER)]
-MANAGERS = ADMINS
